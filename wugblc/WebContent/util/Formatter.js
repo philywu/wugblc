@@ -1,8 +1,8 @@
-jQuery.sap.declare("sap.ui.demo.myFiori.util.Formatter");
+jQuery.sap.declare("com.phily.wugblc.util.Formatter");
 
 jQuery.sap.require("sap.ui.core.format.DateFormat");
 
-sap.ui.demo.myFiori.util.Formatter = {
+com.phily.wugblc.util.Formatter = {
 	
 	_statusStateMap : {
 		"P" : "Success",

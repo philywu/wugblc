@@ -1,13 +1,13 @@
-jQuery.sap.declare("sap.ui.demo.myFiori.Component");
+jQuery.sap.declare("com.phily.wugblc.Component");
 
-sap.ui.core.UIComponent.extend("sap.ui.demo.myFiori.Component", {
+sap.ui.core.UIComponent.extend("com.phily.wugblc.Component", {
 
 	createContent : function() {
 
 		// create root view
 		var oView = sap.ui.view({
 			id : "app",
-			viewName : "sap.ui.demo.myFiori.view.App",
+			viewName : "com.phily.wugblc.view.App",
 			type : "JS",
 			viewData : { component : this }
 		});
@@ -24,7 +24,8 @@ sap.ui.core.UIComponent.extend("sap.ui.demo.myFiori.Component", {
 //		oView.setModel(oModel);
 
 		// Using a local model for offline development
-		var oModel = new sap.ui.model.json.JSONModel("model/mock.json");
+		//var oModel = new sap.ui.model.json.JSONModel("model/mock.json");
+		var oModel = new sap.ui.model.json.JSONModel("model/cat.json");
 		oView.setModel(oModel);
 
 		// set device model

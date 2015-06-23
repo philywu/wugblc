@@ -1,7 +1,7 @@
-sap.ui.jsview("sap.ui.demo.myFiori.view.App", {
+sap.ui.jsview("com.phily.wugblc.view.App", {
 
 	getControllerName: function () {
-		return "sap.ui.demo.myFiori.view.App";
+		return "com.phily.wugblc.view.App";
 	},
 	
 	createContent: function (oController) {
@@ -13,12 +13,12 @@ sap.ui.jsview("sap.ui.demo.myFiori.view.App", {
 		this.app = new sap.m.SplitApp();
 
 		// load the master page
-		var master = sap.ui.xmlview("Master", "sap.ui.demo.myFiori.view.Master");
+		var master = sap.ui.xmlview("Master", "com.phily.wugblc.view.Master");
 		master.getController().nav = this.getController();
 		this.app.addPage(master, true);
 		
 		// load the empty page
-		var empty = sap.ui.xmlview("Empty", "sap.ui.demo.myFiori.view.Empty");
+		var empty = sap.ui.xmlview("Empty", "com.phily.wugblc.view.Empty");
 		this.app.addPage(empty, false);
 		
 		return this.app;

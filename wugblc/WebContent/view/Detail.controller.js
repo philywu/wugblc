@@ -1,6 +1,6 @@
-jQuery.sap.require("sap.ui.demo.myFiori.util.Formatter");
+jQuery.sap.require("com.phily.wugblc.util.Formatter");
 
-sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
+sap.ui.controller("com.phily.wugblc.view.Detail", {
 
 	handleNavButtonPress : function (evt) {
 		this.nav.back("Master");

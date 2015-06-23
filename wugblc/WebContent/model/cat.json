@@ -1,0 +1,13 @@
+{
+	"BalCategory": [
+		{ "code": "101",
+		  "desc": "Paknsave",
+		  "display":"X"
+		},
+		{
+		"code": "102",
+		  "desc": "warehouse",
+		  "display":"X"
+		}
+	]
+}	

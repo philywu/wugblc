@@ -1,6 +1,6 @@
-jQuery.sap.require("sap.ui.demo.myFiori.util.Formatter");
+jQuery.sap.require("com.phily.wugblc.util.Formatter");
 
-sap.ui.controller("sap.ui.demo.myFiori.view.Master", {
+sap.ui.controller("com.phily.wugblc.view.Master", {
 
 	handleListItemPress : function (evt) {
 		var context = evt.getSource().getBindingContext();
@@ -9,7 +9,7 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Master", {
 	
 	handleSearch : function (evt) {
 		
-		// create model filter
+		/*// create model filter
 		var filters = [];
 		var query = evt.getParameter("query");
 		if (query && query.length > 0) {
@@ -20,7 +20,7 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Master", {
 		// update list binding
 		var list = this.getView().byId("list");
 		var binding = list.getBinding("items");
-		binding.filter(filters);
+		binding.filter(filters);*/
 	},
 	
 	handleListSelect : function (evt) {
