@@ -11,10 +11,13 @@
 			number="{code}"
 			 >
 			<attributes>
-				<ObjectAttribute text="{desc}" />
-				
+				<ObjectAttribute id="ds" text="description: {desc}" />
+				<ObjectAttribute id="ap" 
+					text="parent: {desc}" />
 			</attributes>
 			
 		</ObjectHeader>
+		<Button text="Test" type="Accept"
+						icon="sap-icon://accept" press="handleTest" />
 	</Page>
 </core:View>

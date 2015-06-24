@@ -22,14 +22,19 @@ sap.ui.controller("com.phily.wugblc.view.App", {
 			jQuery.sap.log.info("app controller > loaded page: " + pageId);
 		}
 		
-		// show the page
-		app.to(pageId);
+		
 		
 		// set data context on the page
 		if (context) {
 			var page = app.getPage(pageId);
 			page.setBindingContext(context);
+			page.rerender();
+			
 		}
+		
+		// show the page
+		app.to(pageId);
+		
 	},
 	
 	/**

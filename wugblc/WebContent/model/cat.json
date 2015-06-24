@@ -1,12 +1,55 @@
 {
 	"BalCategory": [
-		{ "code": "101",
+		{ "code": "100",
+		  "desc": "Daily Life",
+		  "display":" "
+		},
+		{ "code": "110",
+		  "desc": "Super Market",
+		  "display":"X"
+		},
+		{ "code": "111",
 		  "desc": "Paknsave",
 		  "display":"X"
 		},
 		{
-		"code": "102",
+		"code": "112",
 		  "desc": "warehouse",
+		  "display":"X"
+		},
+		{
+		"code": "113",
+		  "desc": "China Supermarket",
+		  "display":"X"
+		},
+		{
+		"code": "120",
+		  "desc": "shopping",
+		  "display":" "
+		},
+		{
+		"code": "121",
+		  "desc": "Farmers",
+		  "display":"X"
+		},
+		{
+		"code": "122",
+		  "desc": "Baby Stuff",
+		  "display":"X"
+		},
+		{
+		"code": "300",
+		  "desc": "Travel",
+		  "display":" "
+		},
+		{
+		"code": "310",
+		  "desc": "Car",
+		  "display":"X"
+		},
+		{
+		"code": "311",
+		  "desc": "Petrol",
 		  "display":"X"
 		}
 	]
