@@ -28,26 +28,25 @@ sap.ui.controller("com.phily.wugblc.view.Detail", {
 			var context = this.getView().getBindingContext();
 			var oDataAll = oModel.getObject("/BalCategory");
 			
-			//var ap = this.getView().byId("ap");
-			//ap.bindElement("/BalCategory/[code='110']");
+			
 			//console.log(context.getProperty("code"));
 			var code = context.getProperty("code");
+			//get parentCode
 			var parentCode = com.phily.wugblc.util.CatUtil.getParentCode(code);
 			var num = -1;
 			
-			console.log(parentCode);
+			//console.log(parentCode);
+			// find sequence of parent category
 			if (oDataAll instanceof Array){  
 				oDataAll.forEach(function(oValue, i){  
-				    //…  //
-					//console.log(oValue.code,code);
+				   
 					if(oValue.code == parentCode ){
-						
-						//console.log(oModel.getObject("/BalCategory/"+i));
 						num = i;
 					}
 				  });  
 				}  
 			if(num>=0){
+				//re binding the element for parent category
 				console.log(oModel.getObject("/BalCategory/"+num));
 				this.getView().byId("ap").bindElement("/BalCategory/"+num);
 				console.log(this.getView().byId("ap").getBindingContext());
