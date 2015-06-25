@@ -14,10 +14,8 @@
 				<ObjectAttribute id="ds" text="description: {desc}" />
 				<ObjectAttribute id="ap" 
 					text="parent: {desc}" />
-			</attributes>
-			
+			</attributes>			
 		</ObjectHeader>
-		<Button text="Test" type="Accept"
-						icon="sap-icon://accept" press="handleTest" />
+		<Button id="btn_parent" text="got to parent: {desc}" type="Default" icon="sap-icon://response" press="handleParent" />
 	</Page>
 </core:View>

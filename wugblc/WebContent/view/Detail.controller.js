@@ -8,6 +8,11 @@ sap.ui.controller("com.phily.wugblc.view.Detail", {
 	handleTest : function (evt) {
 	console.log("hello test");
 	},
+	handleParent : function (evt) {
+		var context = evt.getSource().getBindingContext();
+		this.nav.to("Detail", context);
+		//console.log(evt.getSource().getBindingContext());
+	},
 	/**
 	* Called when a controller is instantiated and its View controls (if available) are already created.
 	* Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
@@ -47,8 +52,9 @@ sap.ui.controller("com.phily.wugblc.view.Detail", {
 				}  
 			if(num>=0){
 				//re binding the element for parent category
-				console.log(oModel.getObject("/BalCategory/"+num));
+				
 				this.getView().byId("ap").bindElement("/BalCategory/"+num);
+				this.getView().byId("btn_parent").bindElement("/BalCategory/"+num);
 				console.log(this.getView().byId("ap").getBindingContext());
 			}
 			
