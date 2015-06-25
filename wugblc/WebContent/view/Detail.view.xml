@@ -17,5 +17,28 @@
 			</attributes>			
 		</ObjectHeader>
 		<Button id="btn_parent" text="got to parent: {desc}" type="Default" icon="sap-icon://response" press="handleParent" />
+		<Table id="tblSub" headerText="sub categories" items="{BalCategory}">
+			<columns>
+				<Column>
+					<header>
+						<Label text="Code" />
+					</header>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+					<header>
+						<Label text="Description" />
+					</header>
+				</Column>				
+			</columns>
+			<ColumnListItem type="Navigation" press="handleLineItemPress">
+				<cells>
+					<ObjectIdentifier title="{code}" />
+					
+					<Text
+						text="{desc}" />
+					
+				</cells>
+			</ColumnListItem>
+		</Table>
 	</Page>
 </core:View>

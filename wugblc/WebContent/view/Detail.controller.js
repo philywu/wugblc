@@ -55,8 +55,16 @@ sap.ui.controller("com.phily.wugblc.view.Detail", {
 				
 				this.getView().byId("ap").bindElement("/BalCategory/"+num);
 				this.getView().byId("btn_parent").bindElement("/BalCategory/"+num);
-				console.log(this.getView().byId("ap").getBindingContext());
+				//console.log(this.getView().byId("ap").getBindingContext());
 			}
+			this.getView().byId("tblSub").bindElement("/");
+			var filters = [];
+			var sFilter = new sap.ui.model.Filter("code", sap.ui.model.FilterOperator.EQ, ["110"]);
+			filters.push(sFilter);
+			sFilter = new sap.ui.model.Filter("code", sap.ui.model.FilterOperator.EQ, ["120"]);
+			filters.push(sFilter);
+			var binding = this.getView().byId("tblSub").getBinding("items");
+			binding.filter(filters);
 			
 		},
 
