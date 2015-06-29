@@ -13,6 +13,10 @@ sap.ui.controller("com.phily.wugblc.view.Detail", {
 		this.nav.to("Detail", context);
 		//console.log(evt.getSource().getBindingContext());
 	},
+	handleLineItemPress: function (evt){
+		var context = evt.getSource().getBindingContext();
+		this.nav.to("Detail", context);
+	},
 	/**
 	* Called when a controller is instantiated and its View controls (if available) are already created.
 	* Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
@@ -57,14 +61,28 @@ sap.ui.controller("com.phily.wugblc.view.Detail", {
 				this.getView().byId("btn_parent").bindElement("/BalCategory/"+num);
 				//console.log(this.getView().byId("ap").getBindingContext());
 			}
-			this.getView().byId("tblSub").bindElement("/");
+			
+			var subCatList = this.getSubCatCode(code,oDataAll);
 			var filters = [];
-			var sFilter = new sap.ui.model.Filter("code", sap.ui.model.FilterOperator.EQ, ["110"]);
-			filters.push(sFilter);
-			sFilter = new sap.ui.model.Filter("code", sap.ui.model.FilterOperator.EQ, ["120"]);
-			filters.push(sFilter);
-			var binding = this.getView().byId("tblSub").getBinding("items");
-			binding.filter(filters);
+			var tblSub = this.getView().byId("tblSub");
+			if (subCatList.length > 0 ){
+				tblSub.setVisible (true);
+				tblSub.bindElement("/");
+				
+				subCatList.forEach(function(val, i){  
+					var sFilter = new sap.ui.model.Filter("code", sap.ui.model.FilterOperator.EQ, val);
+					filters.push(sFilter);
+				});
+				//sFilter = new sap.ui.model.Filter("code", sap.ui.model.FilterOperator.EQ, ["120"]);
+				//filters.push(sFilter);
+				var binding = this.getView().byId("tblSub").getBinding("items");
+				binding.filter(filters);
+				
+			} else {
+				tblSub.setVisible (false);
+			}
+			
+			
 			
 		},
 
@@ -85,6 +103,34 @@ sap.ui.controller("com.phily.wugblc.view.Detail", {
 //		onExit: function() {
 	//
 //		}
+		getSubCatCode: function(parentCode,oDataAll){
+			var subList = [];
+			var level ;
+			//subList.push("111");
+			if (parentCode.charAt(2)!="0"){
+				level = 3;
+			} else if (parentCode.charAt(1)!="0") {
+				level = 2;
+			} else {
+				level =1 ;
+			}
+			if (level <3 && oDataAll instanceof Array){  
+				oDataAll.forEach(function(oValue, i){
+					if (level == 1){
+						if (oValue.code.charAt(0)==parentCode.charAt(0) && oValue.code.charAt(1)!="0" &&oValue.code.charAt(2)=="0") {
+							subList.push(oValue.code);
+						}
+					}
+					if (level == 2){
+						if(oValue.code.substr(0,2) == parentCode.substr(0,2) && oValue.code.charAt(2)!="0"){						
+							subList.push(oValue.code)
+						}
+					}
+				  });  
+				}  
+			//subList.push("112");
+			return subList;
+		}
 
 		
 		
